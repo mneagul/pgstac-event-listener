@@ -1,0 +1,12 @@
+[project]
+name = "eoepca-pgstac-event-listener"
+version = "0.1.0"
+description = "Event Listener for PgSTAC"
+requires-python = ">=3.12"
+dependencies = [
+    "asyncpg",
+    "pydantic",
+    "pydantic-settings",
+    "cloudevents",
+    "httpx",
+]
