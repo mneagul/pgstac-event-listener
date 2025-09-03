@@ -38,7 +38,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.8.0
         with:
-          images: ghcr.io/stac-utils/stac-fastapi-pgstac
+          images: ghcr.io/mneagul/stac-fastapi-pgstac
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6.18.0
