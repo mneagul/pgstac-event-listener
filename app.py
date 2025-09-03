@@ -70,5 +70,5 @@ async def run():
     finally:
         await conn.close()
 
-
-asyncio.run(run())
+if __name__ == "__main__":
+    asyncio.run(run())
