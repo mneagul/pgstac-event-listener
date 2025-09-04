@@ -27,6 +27,8 @@ class PostgresSettings(BaseSettings):
     pghost: str
     pgport: int
     pgdatabase: str
+    pgstac_item_channel: Annotated[Optional[str], Field(default="pgstac_items")]
+    pgstac_collection_channel: Annotated[Optional[str], Field(default="pgstac_collections")]
 
     @property
     def connection_string(self):
@@ -63,7 +65,8 @@ async def handle(conn, pid, channel, payload_str):
 
 async def run():
     conn = await asyncpg.connect(settings.postgresql.connection_string)
-    await conn.add_listener("pgstac_items", handle)
+    await conn.add_listener(settings.postgresql.pgstac_item_channel, handle)
+
 
     try:
         await asyncio.Future()  # keep thing rolling
